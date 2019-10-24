@@ -22,7 +22,5 @@ grep ">" ./databases/all_genome.fasta|cut -f 2 -d ">" > ./results/association.ts
 # 5-genes complets
 sed "s:>:*\n>:g" ./results/genes.fna | sed -n "/partial=00/,/*/p"|grep -v "*" > ./results/genes_full.fna 
 
-
 # 6-Annoter les gènes complets
-'''     6. Annoter les gènes “complets” contre la banque resfinder (database/resfinder.fna) à l’aide de blastn. Vous sélectionnerez à l’aide de blast, les gènes avec une identité de >=80% et une couverture >= 80% pour une evalue supérieure à 1E-3. 
-Est ce que vos génomes présentes des gènes de résistance pour certains antibiotiques ? '''
+./soft/blastn -query ./results/genes_full.fna -db ./databases/resfinder.fna -outfmt '6 qseqid sseqid pident qcovs evalue' -out ./results/annotation_blast.out -evalue 0.001 -qcov_hsp_perc 80 -perc_identity 80 -best_hit_score_edge 0.001
