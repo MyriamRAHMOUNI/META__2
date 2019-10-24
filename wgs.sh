@@ -29,6 +29,4 @@ sed "s:>:*\n>:g" ./results/genes.fna | sed -n "/partial=00/,/*/p"|grep -v "*" > 
 
 # REPONSE QUESTION : 
 
-'''Est ce que vos génomes présentes des gènes de résistance pour certains antibiotiques ? '''
-
 '''''L échantillon E présente 31 gènes de résistance pour certains antibiotiques'''''
