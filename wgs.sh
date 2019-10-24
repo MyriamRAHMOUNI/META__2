@@ -24,3 +24,11 @@ sed "s:>:*\n>:g" ./results/genes.fna | sed -n "/partial=00/,/*/p"|grep -v "*" > 
 
 # 6-Annoter les gènes complets
 ./soft/blastn -query ./results/genes_full.fna -db ./databases/resfinder.fna -outfmt '6 qseqid sseqid pident qcovs evalue' -out ./results/annotation_blast.out -evalue 0.001 -qcov_hsp_perc 80 -perc_identity 80 -best_hit_score_edge 0.001
+
+#ResFinder is a database that captures antimicrobial resistance genes from whole-genome data sets; qcovs = Query Coverage Per Subject; E-value is the number of expected hits of similar quality (score) that could be found just by chance; pident = percentage of identical matches
+
+# REPONSE QUESTION : 
+
+'''Est ce que vos génomes présentes des gènes de résistance pour certains antibiotiques ? '''
+
+'''''L échantillon E présente 31 gènes de résistance pour certains antibiotiques'''''
